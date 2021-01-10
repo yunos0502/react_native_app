@@ -20,7 +20,7 @@ class App extends Component {
       <View style={styles.mainView}>
         {/* <Header name={this.state.appName} /> */}
         <Text style={styles.mainText} onPress={() => alert('text touch event')}>
-          hello world
+          Hello World
         </Text>
       </View>
     );
@@ -35,9 +35,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  subView: {
+    backgroundColor: 'yellow',
+    marginBottom: 10,
+  },
   mainText: {
-    color: 'red',
     fontSize: 20,
+    fontWeight: 'normal',
+    color: 'red',
+    padding: 20,
   },
 });
 
