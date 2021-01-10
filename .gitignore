@@ -144,3 +144,5 @@ buck-out
 
 # Android memory profiler files
 *.hprof
+
+## https://github.com/facebook/react-native/blob/master/.gitignore
