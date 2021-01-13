@@ -1,17 +1,19 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * https://reactnative.dev/docs/scrollview
  *
  * @format
  * @flow
  */
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
 
 import Header from './src/header';
 import Generator from './src/generator';
 import NumList from './src/numlist';
+import Input from './src/input';
 
 class App extends Component {
   state = {
@@ -41,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <Header name={this.state.appName} />
+        {/* <Header name={this.state.appName} />
         <View>
           <Text
             style={styles.mainText}
@@ -50,7 +52,18 @@ class App extends Component {
           </Text>
         </View>
         <Generator add={this.onAddRandomNum} />
-        <NumList num={this.state.random} delete={this.onNumDelete} />
+        <ScrollView
+          style={{width: '100%'}}
+          // onMomentumScrollBegin={() => alert('begin')} // Called when the momentum scroll starts
+          // onMomentumScrollEnd={() => alert('end')} // Called when the momentum scroll ends
+          // onScroll={() => alert('scrolling')} // Fires at most once per frame during scrolling.
+          // onContentSizeChange={(width, height) => alert(height)} // Called when scrollable content view of the ScrollView changes.
+          bounces={true} // The end of the content if the content is larger then the scroll view along the axis of the scroll direction.
+        >
+          <NumList num={this.state.random} delete={this.onNumDelete} />
+        </ScrollView> */}
+
+        <Input />
       </View>
     );
   }
