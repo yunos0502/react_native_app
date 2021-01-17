@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'; // TouchableWithoutFeedback
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
 
 const NumList = (props) =>
   props.num.map((item, idx) => (

@@ -1,6 +1,8 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * https://reactnative.dev/docs/touchableopacity
+ * https://reactnative.dev/docs/touchablewithoutfeedback
  *
  * @format
  * @flow

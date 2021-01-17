@@ -8,62 +8,56 @@
  */
 
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
-
-import Header from './src/header';
-import Generator from './src/generator';
-import NumList from './src/numlist';
-import Input from './src/input';
+import {
+  View,
+  ScrollView,
+  TextInput,
+  StyleSheet,
+  Button,
+  Text,
+} from 'react-native';
 
 class App extends Component {
   state = {
-    appName: 'My First App',
-    random: [36, 999],
+    myTextInput: '',
+    alphabet: ['a', 'b', 'c', 'd'],
   };
 
-  onAddRandomNum = () => {
-    const randomNum = Math.floor(Math.random() * 100) + 1;
+  onChangeInput = (event) => {
+    this.setState({
+      myTextInput: event,
+    });
+  };
+
+  onAddTextInput = () => {
     this.setState((prevState) => {
       return {
-        random: [...prevState.random, randomNum],
+        myTextInput: '',
+        alphabet: [...prevState.alphabet, prevState.myTextInput],
       };
-    });
-  };
-
-  onNumDelete = (position) => {
-    const newArray = this.state.random.filter((num, index) => {
-      return position !== index;
-    });
-
-    this.setState({
-      random: newArray,
     });
   };
 
   render() {
     return (
       <View style={styles.mainView}>
-        {/* <Header name={this.state.appName} />
-        <View>
-          <Text
-            style={styles.mainText}
-            onPress={() => alert('text touch event')}>
-            Hello World
-          </Text>
-        </View>
-        <Generator add={this.onAddRandomNum} />
-        <ScrollView
-          style={{width: '100%'}}
-          // onMomentumScrollBegin={() => alert('begin')} // Called when the momentum scroll starts
-          // onMomentumScrollEnd={() => alert('end')} // Called when the momentum scroll ends
-          // onScroll={() => alert('scrolling')} // Fires at most once per frame during scrolling.
-          // onContentSizeChange={(width, height) => alert(height)} // Called when scrollable content view of the ScrollView changes.
-          bounces={true} // The end of the content if the content is larger then the scroll view along the axis of the scroll direction.
-        >
-          <NumList num={this.state.random} delete={this.onNumDelete} />
-        </ScrollView> */}
-
-        <Input />
+        <TextInput
+          value={this.state.myTextInput}
+          style={styles.input}
+          onChangeText={this.onChangeInput}
+          multiline={true} // 개행
+          maxLength={100} // 최대 입력 글자 갯수
+          autoCapitalize={'none'} // 대문자 자동 수정
+          editable={true} // disabled
+        />
+        <Button title="Add Text Input" onPress={this.onAddTextInput} />
+        <ScrollView style={{width: '100%'}}>
+          {this.state.alphabet.map((item, idx) => (
+            <Text style={styles.mainText} key={idx}>
+              {item}
+            </Text>
+          ))}
+        </ScrollView>
       </View>
     );
   }
@@ -84,8 +78,17 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 20,
     fontWeight: 'normal',
-    color: 'red',
+    color: 'white',
     padding: 20,
+    margin: 20,
+    backgroundColor: 'orange',
+  },
+  input: {
+    width: '100%',
+    backgroundColor: '#cecece',
+    marginTop: 20,
+    fontSize: 25,
+    padding: 10,
   },
 });
 
