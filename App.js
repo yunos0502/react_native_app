@@ -1,7 +1,7 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * https://reactnative.dev/docs/scrollview
+ * https://picsum.photos/
  *
  * @format
  * @flow
@@ -15,6 +15,7 @@ import {
   StyleSheet,
   Button,
   Text,
+  Image,
 } from 'react-native';
 
 import Header from './src/header';
@@ -22,6 +23,7 @@ import Generator from './src/generator';
 import NumList from './src/numlist';
 import Input from './src/input';
 import Picker from './src/picker';
+import Hodu from './assets/images/hodu.jpg';
 
 class App extends Component {
   state = {
@@ -47,24 +49,15 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        <Picker />
-        {/* <TextInput
-          value={this.state.myTextInput}
-          style={styles.input}
-          onChangeText={this.onChangeInput}
-          multiline={true} // 개행
-          maxLength={100} // 최대 입력 글자 갯수
-          autoCapitalize={'none'} // 대문자 자동 수정
-          editable={true} // disabled
+        {/*  */}
+        <Image style={styles.image} source={Hodu} resizeMode="contain" />
+        {/*  */}
+        <Image
+          style={styles.image}
+          source={{uri: 'https://picsum.photos/id/237/200/300'}}
+          resizeMode="contain"
+          onLoadEnd={() => alert('image Loaded')}
         />
-        <Button title="Add Text Input" onPress={this.onAddTextInput} />
-        <ScrollView style={{width: '100%'}}>
-          {this.state.alphabet.map((item, idx) => (
-            <Text style={styles.mainText} key={idx}>
-              {item}
-            </Text>
-          ))}
-        </ScrollView> */}
       </View>
     );
   }
@@ -96,6 +89,10 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 25,
     padding: 10,
+  },
+  image: {
+    width: '100%',
+    height: 500,
   },
 });
 
