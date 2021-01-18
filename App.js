@@ -23,6 +23,7 @@ import Generator from './src/generator';
 import NumList from './src/numlist';
 import Input from './src/input';
 import Picker from './src/picker';
+import Modal from './src/modal';
 import Hodu from './assets/images/hodu.jpg';
 
 class App extends Component {
@@ -49,15 +50,7 @@ class App extends Component {
   render() {
     return (
       <View style={styles.mainView}>
-        {/*  */}
-        <Image style={styles.image} source={Hodu} resizeMode="contain" />
-        {/*  */}
-        <Image
-          style={styles.image}
-          source={{uri: 'https://picsum.photos/id/237/200/300'}}
-          resizeMode="contain"
-          onLoadEnd={() => alert('image Loaded')}
-        />
+        <Modal />
       </View>
     );
   }
